@@ -5,6 +5,7 @@ import {
   Route,
  } from 'react-router-dom';
 
+import * as ROUTES from '../../constants/routes';
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
@@ -14,9 +15,13 @@ import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 
-import * as ROUTES from '../../constants/routes';
+import useStyles from '../MaterialUiStyles';
 
-const App = () => (
+export default function App() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
     <Router>
       <div>
       <Navigation />
@@ -30,6 +35,6 @@ const App = () => (
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       </div>
     </Router>
-);
-
-export default App;
+    </div>
+  );
+}
